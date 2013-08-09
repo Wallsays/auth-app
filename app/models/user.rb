@@ -5,12 +5,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
- 
+  
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation,
                   :remember_me, :provider, :uid,
                   :username, :phone
-   
+  
+  has_many :reservations
+ 
   def self.facebook(auth)
     if user = User.find_by_email(auth.info.email)
       user.provider = auth.provider
@@ -26,4 +28,4 @@ class User < ActiveRecord::Base
       end
     end
   end 
-end 
+end  

@@ -1,5 +1,11 @@
 AuthApp::Application.routes.draw do
 
+  resources :reservations
+
+
+  resources :restaurants
+
+
   devise_for :owners
 
   root :to => "home#index"  
