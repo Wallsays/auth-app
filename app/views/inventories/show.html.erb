@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Restaurant:</b>
+  <%= @inventory.restaurant.name %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @inventory.date %>
+</p>
+
+
+<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
+<%= link_to 'Back', inventories_path %>

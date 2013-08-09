@@ -1,5 +1,8 @@
 AuthApp::Application.routes.draw do
 
+  resources :inventories
+
+
   resources :inventory_templates
 
 

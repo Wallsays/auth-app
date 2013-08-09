@@ -10,3 +10,4 @@ class Restaurant < ActiveRecord::Base
   # has_many :inventory_templates
 
 end
+
