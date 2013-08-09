@@ -6,8 +6,9 @@ class Restaurant < ActiveRecord::Base
   validates :lat,   :presence => true
 
   has_many :reservations
-  # has_many :inventories
-  # has_many :inventory_templates
+  has_many :inventories
+  has_many :inventory_templates
 
 end
 
+  

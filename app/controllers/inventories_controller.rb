@@ -1,7 +1,10 @@
 class InventoriesController < ApplicationController
+  before_filter :authenticate_owner!, 
+                except: [:index, :show]
+
   # GET /inventories
   # GET /inventories.json
-  def index
+  def index 
     @inventories = Inventory.all
 
     respond_to do |format|

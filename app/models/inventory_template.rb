@@ -12,3 +12,4 @@ class InventoryTemplate < ActiveRecord::Base
 
   belongs_to :restaurant
 end
+ 

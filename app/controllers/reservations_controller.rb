@@ -3,7 +3,9 @@ class ReservationsController < ApplicationController
                 except: [:index, :show]
   before_filter :check_who_editing,  
                 except: [:index, :show, :new, :create]
- 
+  # before_filter :process_reservation,  
+  #               only: [:create, :update, :delete]
+
   # GET /reservations
   # GET /reservations.json
   def index
@@ -101,6 +103,28 @@ class ReservationsController < ApplicationController
             status: :unprocessable_entity  }
         end
       end
+    end
+
+    def process_reservation
+      # @reservation = Reservation.find(params[:id])
+      # @reservation.user_id = current_user.id
+
+      # date1 = @reservation.date
+      # start_time = @reservation.start_time
+      # end_time = @reservation.end_time 
+      # party_size = @reservation.party_size 
+       
+      # # check for existing dates in inventories
+      # @inventories = Inventory.where(:date => date1 )
+   
+      # @inventory_templates = InventoryTemplate.where(
+      #   :start_time >= start_time and 
+      #   :end_time <= end_time and 
+      #   :quantity_available >= party_size)
+
+      # InventoryTemplate.where("start_time <= ? and end_time >= ?", Reservation.first.start_time, Reservation.first.end_time)
+
+ 
     end
 
 end

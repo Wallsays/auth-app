@@ -10,6 +10,21 @@
   <%= @inventory.date %>
 </p>
 
+<p>
+  <b>Start time:</b>
+  <%= mtime(@inventory.start_time) %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= mtime(@inventory.end_time) %>
+</p>
+
+<p>
+  <b>Quantity available:</b>
+  <%= @inventory.quantity_available %>
+</p>
+
 
 <%= link_to 'Edit', edit_inventory_path(@inventory) %> |
 <%= link_to 'Back', inventories_path %>

@@ -11,13 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130809140650) do
+ActiveRecord::Schema.define(:version => 20130809142123) do
 
   create_table "inventories", :force => true do |t|
     t.integer  "restaurant_id"
     t.date     "date"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "quantity_available"
   end
 
   add_index "inventories", ["restaurant_id"], :name => "index_inventories_on_restaurant_id"

@@ -1,4 +1,7 @@
 class InventoryTemplatesController < ApplicationController
+  before_filter :authenticate_owner!, 
+                except: [:index, :show]
+  
   # GET /inventory_templates
   # GET /inventory_templates.json
   def index
@@ -9,7 +12,7 @@ class InventoryTemplatesController < ApplicationController
       format.json { render json: @inventory_templates }
     end
   end
-
+  
   # GET /inventory_templates/1
   # GET /inventory_templates/1.json
   def show
@@ -79,5 +82,6 @@ class InventoryTemplatesController < ApplicationController
       format.html { redirect_to inventory_templates_url }
       format.json { head :no_content }
     end
-  end
+  end 
+
 end
