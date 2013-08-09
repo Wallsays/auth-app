@@ -228,8 +228,16 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
 
   require "omniauth-facebook"
-  config.omniauth :facebook, '572814159448965', '33db6fbc5a147d434b692fbcd688ce51'
-  
+  case Rails.env
+    when "development"
+      config.omniauth :facebook, '572814159448965', '33db6fbc5a147d434b692fbcd688ce51'
+      # config.omniauth :google_oauth2, "APP_ID", "APP_SECRET", { access_type: "offline", approval_prompt: "" }
+    when "production"
+      config.omniauth :facebook, "515632468516870", "12eb33be0069042efb658537afdc7f2a",
+          {:scope => 'email, offline_access', 
+            :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
+  end
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
