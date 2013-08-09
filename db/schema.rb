@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130809131651) do
+ActiveRecord::Schema.define(:version => 20130809135459) do
+
+  create_table "inventory_templates", :force => true do |t|
+    t.integer  "restaurant_id"
+    t.string   "name"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "quantity_available"
+    t.boolean  "primary"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "inventory_templates", ["restaurant_id"], :name => "index_inventory_templates_on_restaurant_id"
 
   create_table "owners", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

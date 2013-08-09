@@ -10,3 +10,7 @@ class Owner < ActiveRecord::Base
                   :owner_name, :phone
   
 end
+
+
+
+

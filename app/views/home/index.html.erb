@@ -7,7 +7,7 @@
     <%= link_to "Logout", destroy_user_session_path, method: :delete %>
   <%else%>  
     <%= link_to "Logout", destroy_owner_session_path, method: :delete %>
-  <% end %>   
+  <% end %>    
 <% else %>
   <%= link_to "Login as user", new_user_session_path %><br />
   <%= link_to "Registration for users", new_user_registration_path %><p />
@@ -19,3 +19,5 @@
 <p />
  <%= link_to "Restaurants", restaurants_path %><br />
  <%= link_to "Reservations", reservations_path %><br />
+ <%= link_to "Inventory Templates", inventory_templates_path %><br />
+

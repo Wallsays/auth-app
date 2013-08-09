@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation,
                   :remember_me, :provider, :uid,
                   :username, :phone
-  
+   
   has_many :reservations
  
   def self.facebook(auth)
